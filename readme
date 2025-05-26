@@ -1,0 +1,40 @@
+# 🧲 craigslist_bike_scraper.py — The Craigslist Santa Cruz Bike Hunter 🔍🚲
+
+![Python](https://img.shields.io/badge/python-3.10+-blue?logo=python)
+![Selenium](https://img.shields.io/badge/selenium-powered-green?logo=selenium)
+![BeautifulSoup](https://img.shields.io/badge/bs4-scraping%20like%20a%20champ-yellow)
+![Discord](https://img.shields.io/badge/discord-webhook-enabled-purple?logo=discord)
+![Craigslist](https://img.shields.io/badge/target-craigslist-white?logo=craigslist)
+![Maintained](https://img.shields.io/badge/actively%20maintained-by%20joetanse-success)
+
+---
+
+**`craigslist_bike_scraper.py`** is a precision tool for scraping _Santa Cruz bikes_ (specifically `bronson`, `5010`, and `nomad` models) from Craigslist listings around the SF Bay Area.
+
+Think of it as your personal bike scout. Tireless. Unemotional. Fluent in HTML.  
+And when it finds something tasty, it drops it directly in your Discord like this:  
+📤 `Santa Cruz Bronson, Large — $3200 (Watsonville)`
+
+---
+
+## 🧠 Features
+
+- 🕸 **Real-time Craigslist scraping** via headless Chromium & Selenium
+- 🧽 **Smart attribute parsing** (model, size, year, etc.) using BeautifulSoup
+- ⏳ **Waits for JavaScript-rendered content** before parsing
+- ❗ **Keyword de-spamming**: Ignores those icky keyword-stuffed blocks
+- 🧠 **False negative reducers**: Parses even when Craigslist uses funky formatting
+- 📢 **Automatic Discord alerts** via webhook
+- 🤖 **Logs everything** it finds, skips, or posts
+- 🧯 **Fails gracefully** on slow pages, missing elements, or Razor scooters
+
+---
+
+## ⚙️ Setup
+
+> Make sure you’ve got Chrome/Chromium installed, and your Python environment ready.
+
+### 1. Install dependencies
+
+```bash
+pip install selenium beautifulsoup4 requests
