@@ -38,3 +38,72 @@ And when it finds something tasty, it drops it directly in your Discord like thi
 
 ```bash
 pip install selenium beautifulsoup4 requests
+
+CHROMEDRIVER_BIN = "/usr/bin/chromedriver"
+CHROME_BIN = "/usr/bin/chromium-browser"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/your_real_webhook_here"
+
+💡 How It Works
+🎯 Match Strategy
+gallery8.py scans up to 200 Craigslist bike listings using:
+
+Title
+
+Attribute summary (div.attrgroup)
+
+Model keywords: ["bronson", "5010", "nomad"]
+
+Size keywords: ["large", "lrg", "lg", "size l", ...]
+
+It only posts if both model and size are confidently matched.
+Otherwise? It logs and moves on like a professional.
+
+🚨 Error Handling
+Situation	Behavior
+attrgroup not found	Waits up to 10s. If missing? Skips gracefully.
+Model found, size missing	Skips, logs debug info (but doesn’t ping Discord)
+Discord webhook not set	Warns you and avoids accidental HTTP 400 flood
+Unexpected Craigslist formatting	Falls back to full-text search for size/model
+Razor scooters, hoverboards, etc. 🛴	Logs a sarcastic comment and skips 😎
+
+📤 Discord Output
+Matches get posted to your Discord channel using embed fields:
+
+yaml
+Copy
+Edit
+🎯 Santa Cruz Bronson
+💰 Price: $4,200
+📏 Size: Large
+📍 Location: Watsonville
+🔗 Link: [View Listing](https://craigslist...)
+🖼 Thumbnail: [inline image]
+Looks fancy. Makes you feel like you're running a used-bike intelligence agency.
+
+🧪 Debugging
+Set print points as needed — the script already outputs:
+
+Found gallery URLs
+
+Raw HTML dumps of .attrgroup
+
+Attribute dict (attr_kv)
+
+Model/size matching logic
+
+💬 Future Ideas
+🤖 Add fuzzy model matching (e.g., bronsoncc, nomadv4)
+
+🧠 Smarter size parser: convert "54cm" or "17.5in" → M/L estimates
+
+📦 JSON/CSV export
+
+🚨 Duplicate prevention (don’t post the same listing twice)
+
+🧼 Auto-clean keyword spam and suspicious tags
+
+👑 Author
+Crafted with attention and obsession by @joetanse
+Backed by caffeine, campagnolo record parts, and bike rack bungee cords.
+
+
