@@ -14,7 +14,7 @@ from selenium import webdriver
 SEARCH_URL = "https://sfbay.craigslist.org/search/bia?query=santa+cruz&sort=date"
 CHROMEDRIVER_BIN = "/usr/bin/chromedriver"
 CHROME_BIN = "/usr/bin/chromium-browser"
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1375853092301443154/PWDXxIkTNZGJ6QdiBo4zvUWNEItgSmwYn1Do7Q0ShzwH15SpUySnvOVW_67y4ZvhAj4v"
+DISCORD_WEBHOOK_URL = "UR WEBHOOK HERE"
 MODEL_KEYWORDS = ["bronson", "5010", "nomad"]
 SIZE_KEYWORDS = [
     "large", "size l", "frame size l", "l frame", "l ",
